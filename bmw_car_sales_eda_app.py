@@ -176,17 +176,17 @@ st.pyplot(fig)
 # ================== COLOR, TRANSMISSION, FUEL ==================
 st.markdown("### Color-wise Trend")
 fig, ax = plt.subplots(figsize=(10,5))
-sns.lineplot(data=asia_i3_df, x="Year", y="Sales_Volume", hue="Color", ax=ax)
+sns.lineplot(data=asia_i3_df, x="Year", y="Sales_Volume", hue="Color", ax=ax, ci=None)
 st.pyplot(fig)
 
 st.markdown("### Transmission-wise Trend")
 fig, ax = plt.subplots(figsize=(10,5))
-sns.lineplot(data=asia_i3_df, x="Year", y="Sales_Volume", hue="Transmission", ax=ax)
+sns.lineplot(data=asia_i3_df, x="Year", y="Sales_Volume", hue="Transmission", ax=ax,ci=None)
 st.pyplot(fig)
 
 st.markdown("### Fuel Type-wise Trend")
 fig, ax = plt.subplots(figsize=(10,5))
-sns.lineplot(data=asia_i3_df, x="Year", y="Sales_Volume", hue="Fuel_Type", ax=ax)
+sns.lineplot(data=asia_i3_df, x="Year", y="Sales_Volume", hue="Fuel_Type", ax=ax,ci=None)
 st.pyplot(fig)
 
 # ================== ENGINE SIZE CATEGORY ==================
@@ -202,7 +202,7 @@ asia_i3_df["engine_category"] = np.select(conditions, choices, default="unknown"
 
 fig, ax = plt.subplots(figsize=(10,5))
 sns.lineplot(data=asia_i3_df[asia_i3_df["Fuel_Type"] == "Hybrid"],
-             x="Year", y="Sales_Volume", hue="engine_category", ax=ax)
+             x="Year", y="Sales_Volume", hue="engine_category", ax=ax,ci=None)
 st.pyplot(fig)
 
 # ================== CONCLUSION ==================
