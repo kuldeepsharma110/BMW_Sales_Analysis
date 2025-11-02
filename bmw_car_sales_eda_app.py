@@ -26,52 +26,67 @@ def set_bg_from_local(image_file):
         background-attachment: fixed;
     }}
 
-    [data-testid="stHeader"] {{
-        background: rgba(0,0,0,0);
-    }}
+     [data-testid="stHeader"] {{
+         background: rgba(0,0,0,0);
+     }}
 
-    [data-testid="stSidebar"] > div:first-child {{
-        background: rgba(255, 255, 255, 0.85);
-        color: black;
-    }}
+     [data-testid="stSidebar"] > div:first-child {{
+         background: rgba(255, 255, 255, 0.85);
+         color: black;
+     }}
 
-    /* ========== Main text color ========== */
-    h1, h2, h3, h4, h5, h6, p, .stMarkdown, .stText, .stSubheader, .stTitle {{
-        color: white !important;
-    }}
+     /* ========== Main text color ========== */
+     h1, h2, h3, h4, h5, h6, p, .stMarkdown, .stText, .stSubheader, .stTitle {{
+         color: white !important;
+     }}
 
-    /* ========== TABLES / DATAFRAMES ========== */
-    [data-testid="stDataFrame"] div {{
-        background: rgba(255,255,255,0.2) !important;  /* transparent dark */
-        color: white !important;
-        border-radius: 10px !important;
-        border: 1px solid rgba(255,255,255,0.2) !important;
-        font-size: 14px !important;
-    }}
+     /* ========== TABLES / DATAFRAMES ========== */
+     [data-testid="stDataFrame"] div {{
+         background: rgba(255,255,255,0.2) !important;
+         color: white !important;
+         border-radius: 10px !important;
+         border: 1px solid rgba(255,255,255,0.2) !important;
+         font-size: 14px !important;
+     }}
 
-    /* DataFrame headers (column names) */
-    [data-testid="stDataFrame"] th {{
-        background-color:  rgba(0, 0, 0, 0.8) !important;
-        color: #ffffff !important;
-        font-weight: bold !important;
-    }}
+     [data-testid="stDataFrame"] th {{
+         background-color: rgba(0, 0, 0, 0.8) !important;
+         color: #ffffff !important;
+         font-weight: bold !important;
+     }}
 
-    /* Highlight hover rows for interactivity */
-    [data-testid="stDataFrame"] tr:hover td {{
-        background-color: rgba(255,255,255,0.1) !important;
-    }}
-    </style>
-    """
+     [data-testid="stDataFrame"] tr:hover td {{
+         background-color: rgba(255,255,255,0.1) !important;
+     }}
+
+     /* ========== df.info() output (st.text) background fix ========== */
+     [data-testid="stMarkdownContainer"] pre, 
+     [data-testid="stCodeBlock"], 
+     .stText pre {{
+         background-color: white !important;
+         color: black !important;
+         border-radius: 8px;
+         padding: 10px;
+         font-family: monospace;
+     }}
+     </style>
+     """
     st.markdown(css, unsafe_allow_html=True)
 
 
 
 # ================== PAGE CONFIG ==================
 st.set_page_config(page_title="BMW Car Sales EDA", layout="wide")
+st.sidebar.success("Choose the service")
 
 
 # 🌆 Add background image
-set_bg_from_local("images/bmw.jpg")
+#set_bg_from_local("images/bmw.jpg")
+from PIL import Image
+# Load an image from a file
+image = Image.open('D:\\bmw_sales\\BMW_Sales_Analysis\\images\\bmw.jpg')
+# Display the image with a caption
+st.image(image, caption='BMW', use_column_width=True)
 
 st.title("🚗 BMW Worldwide Car Sales (2010–2024) — EDA Dashboard")
 st.markdown("---")
@@ -221,3 +236,4 @@ st.success("""
 To boost sales of the BMW i3 model, BMW should focus on producing **Black or Grey cars**  
 with **Manual transmission** and **Mid-size engines**, while avoiding **Petrol variants**.
 """)
+
