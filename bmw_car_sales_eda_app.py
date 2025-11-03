@@ -84,7 +84,7 @@ st.sidebar.success("Choose the service")
 #set_bg_from_local("images/bmw.jpg")
 from PIL import Image
 # Load an image from a file
-image = Image.open('images\\bmw.jpg')
+image = Image.open('images/bmw.jpg')
 # Display the image with a caption
 st.image(image, caption='BMW', use_column_width=True)
 
@@ -236,5 +236,6 @@ st.success("""
 To boost sales of the BMW i3 model, BMW should focus on producing **Black or Grey cars**  
 with **Manual transmission** and **Mid-size engines**, while avoiding **Petrol variants**.
 """)
+
 
 
