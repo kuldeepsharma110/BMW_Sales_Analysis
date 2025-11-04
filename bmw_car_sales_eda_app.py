@@ -11,6 +11,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 import kagglehub
+import warnings
+warnings.filterwarnings("ignore")
 
 def set_bg_from_local(image_file):
     import base64
