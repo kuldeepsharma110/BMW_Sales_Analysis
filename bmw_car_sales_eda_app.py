@@ -88,7 +88,7 @@ from PIL import Image
 # Load an image from a file
 image = Image.open('images/bmw.jpg')
 # Display the image with a caption
-st.image(image, caption='BMW', use_column_width=True)
+st.image(image, caption='BMW', use_container_width=True)
 
 st.title("🚗 BMW Worldwide Car Sales (2010–2024) — EDA Dashboard")
 st.markdown("---")

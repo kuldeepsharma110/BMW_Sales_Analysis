@@ -28,7 +28,7 @@ if st.button("Predict Sales"):
         user=st.secrets["postgres"]["user"],
         password=st.secrets["postgres"]["password"],
         port=st.secrets["postgres"]["port"]
-    )    git rm --cached config.toml
+    )    
 
     cursor = conn.cursor()
 
